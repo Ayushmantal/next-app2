@@ -29,6 +29,12 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+model Product {
+  id    String  @id @default(cuid())
+  name  String?
+  price Int
+}
+
 model Account {
   id                       String  @id @default(cuid())
   userId                   String  @unique
