@@ -4,21 +4,22 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  //organization: "org-0u3patGzQVcOO5TNRKrSAOsL",
-  //project: "proj_5Y83hA6ctR6EeYdeZeuxFj73",
+  organization: process.env.OPENAI_ORG_API_KEY,
+  project: process.env.OPENAI_PROJECT_API_KEY,
 });
 
 export async function POST(request: NextRequest, response: NextResponse) {
   const body = await request.json(),
     response_format = { type: "json_object" };
+
   const completion = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
+    model: "gpt-3.5-turbo",
 
     messages: [
       { role: "system", content: "You are a helpful assistant." },
       {
         role: "user",
-        content: "Tell me about eggs in 10 words",
+        content: `Tell me about ${body.name} in 20 words`,
       },
     ],
   });
