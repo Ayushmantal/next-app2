@@ -24,6 +24,7 @@ export async function POST(request: NextRequest) {
     data: {
       name: body.name,
       email: body.email,
+      username: body.username,
     },
   });
   return NextResponse.json(newUser, { status: 201 });

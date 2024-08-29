@@ -30,9 +30,10 @@ model User {
 }
 
 model Product {
-  id    String  @id @default(cuid())
-  name  String?
-  price Int
+  id       String  @id @default(cuid())
+  name     String?
+  price    Int
+  provider String?
 }
 
 model Account {

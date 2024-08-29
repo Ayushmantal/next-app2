@@ -17,6 +17,7 @@ export async function POST(request: NextRequest) {
     data: {
       name: body.name,
       price: body.price,
+      provider: body.provider,
     },
   });
   return NextResponse.json(newProduct, { status: 201 });
