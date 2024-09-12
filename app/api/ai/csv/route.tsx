@@ -345,15 +345,15 @@ const parseCSVandUpsert = async (filePath: string) => {
       const formattedData = results.map((item) => {
         //console.log(item.User);
 
-        if (!item.values) {
+        if (!item.Values) {
           throw new Error("Values field is missing or empty");
         }
         return {
-          id: item.User,
-          values: JSON.parse(item.values), // Safely parse the values or default to empty array
+          id: item.userId,
+          values: JSON.parse(item.Values), // Safely parse the values or default to empty array
           metadata: {
-            Text: item.Text,
-            User: parseInt(item.User || "0"),
+            Text: item.input,
+            User: parseInt(item.userId || "0"),
           }, // Provide default values if missing
         };
       });
